@@ -2,19 +2,44 @@
 <html lang="pt-br">
 
 <head>
-  <title>MDV Motivations</title>
+  <title>NAMA - SIWES</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Template css Files -->
   <link rel="stylesheet" href="css/style.css" type="text/css">
 
   <!-- Live Style Switcher - Demo Only -->
-  <link rel="stylesheet" class="alternate-style" title="pink" href="css/skins/pink.css" type="text/css">
-  <link rel="stylesheet" class="alternate-style" title="blue" href="css/skins/blue.css" type="text/css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="pink" href="css/skins/pink.css" type="text/css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="blue" href="css/skins/blue.css" type="text/css">
   <link rel="stylesheet" class="alternate-style" title="green" href="css/skins/green.css" type="text/css" disabled>
   <link rel="stylesheet" class="alternate-style" title="orange" href="css/skins/orange.css" type="text/css" disabled>
   <link rel="stylesheet" class="alternate-style" title="yellow" href="css/skins/yellow.css" type="text/css" disabled>
   <link rel="stylesheet" href="css/styleSwitcher.css" type="text/css">
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script>
+    emailjs.init('72-JMPqP1_LPyX92iY');
+  
+    const form = document.getElementById('contact-form');
+  
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const templateParams = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        message: document.getElementById('message').value,
+      };
+  
+      emailjs.send('service_9gso9w8', 'template_7qb1elt', templateParams)
+        .then(function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+        }, function (error) {
+          console.log('FAILED...', error);
+        });
+    });
+  </script>
 </head>
 
 <body>
@@ -38,7 +63,7 @@
       <div class="aside-inner">
         <!-- Logo -->
         <div class="logo">
-          <a href="index.html">MDV</a>
+          <a href="index.html">NAMA</a>
         </div>
         <!-- Nav -->
         <ul class="nav">
@@ -63,14 +88,14 @@
       <section class="home section active" id="home">
         <div class="container">
           <div class="intro">
-            <img src="images/about1.png" alt="profile" class="shadow-dark">
-            <h1>MDV Motivation</h1>
+            <img src="images/NAMA.jpg" alt="NAMA-Logo" class="shadow-dark">
+            <h1>NAMA</h1>
             <span class="iTyped"></span>
             <div class="social-links">
-              <a href="Https://X.com/mdvmotivations"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/mustaphasanimuhammadmdv?mibextid=ZbWKwL"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.instagram.com/mdvmotivations"><i class="fa fa-instagram"></i></a>
-              <a href="https://mdvmotivations.blogspot.com/?m=1"><i class="fa fa-blogger"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-blog"></i></a>
             </div>
           </div>
         </div>
@@ -499,26 +524,19 @@
               <div class="row">
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
-                    <input type="text" name="" class="form-control" placeholder="Name*">
+                    <input type="text" name="" class="form-control" id="name" placeholder="Name*">
                   </div>
                 </div>
                 <div class="form-item col-6 padd-15">
                   <div class="form-group">
-                    <input type="email" name="" class="form-control" placeholder="Email*">
+                    <input type="email" name="" class="form-control" id="email" placeholder="Email*">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="form-item col-12 padd-15">
                   <div class="form-group">
-                    <input type="text" name="" class="form-control" placeholder="Subject*">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-item col-12 padd-15">
-                  <div class="form-group">
-                    <textarea class="form-control" name="" placeholder="Your Message..."></textarea>
+                    <textarea class="form-control" id="message" name="" placeholder="Your Message..."></textarea>
                   </div>
                 </div>
               </div>
